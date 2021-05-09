@@ -1,6 +1,4 @@
-# Chatbot Training frontend
-
-Frontend appliction for Chatbot Training
+# TP - Modelado de Datos Semánticos
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
