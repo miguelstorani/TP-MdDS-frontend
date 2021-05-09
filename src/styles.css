@@ -1,0 +1,4 @@
+
+.ui.celled.table tr td, .ui.celled.table tr th {
+    cursor: pointer;
+}
