@@ -7,10 +7,11 @@ import logo from "../../assets/logo.png";
 import { StatusCodes } from "http-status-codes";
 import { format } from "path";
 import { emptyStudent, Student } from "../../models/student";
+import studentStore from "../../stores/student.store";
 
 const sendForm = (student: Student): void{
 //todo cargar en la base de datos
-
+studentStore.loadStudent(student);
 }
 
 const LoadStudentPage = () => {

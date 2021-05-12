@@ -64,6 +64,7 @@ const LoginPage = () => {
                         </Button>
                     </Segment>
                 </Form>
+
             </Grid.Column>
         </Grid>
     )
