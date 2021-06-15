@@ -14,7 +14,7 @@ class StudentStore {
     @observable errorLoadingCode: number = -1;
 
     constructor () {
-makeAutoObservable/this);
+makeAutoObservable(this);
 const student = localStorage.getItem("student");
 if (student !== null){
 this.student = JSON.parse(student? student : "{}");
@@ -35,7 +35,7 @@ getAccessToken(){
 return localStorage.getItem("accessToken");    
 }
 
-loadStuden(student: Student){
+loadStudent(student: Student){
 
 }
 }

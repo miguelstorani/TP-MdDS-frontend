@@ -13,9 +13,10 @@ occupation: string;
 workPlace: string;
 money: number,
 live: boolean;
+illCost: number,
 relation: Relationship;
 school: School;
 scholarship: Scholarship;
 }
 
-export const emptyParent: Parents = { id: -1, name: "", lastName: "", age: -1, occupation: "", workPlace: "", money: -1, live: false, relation: Relationship.Empty, school: emptySchool, scholarship: emptyScholarship};
+export const emptyParent: Parents = { id: -1, name: "", lastName: "", age: -1, occupation: "", workPlace: "", money: -1, live: false, illCost: -1, relation: Relationship.Brother, school: emptySchool, scholarship: emptyScholarship};

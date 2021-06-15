@@ -7,7 +7,7 @@ year: number,
 sec: number,
 turn: number,
 dni: number,
-nationality: string;
+    nationality: string;
 dateBorn: string;
 cuil: number,
 address: string;
@@ -16,7 +16,7 @@ city: string;
 bar: string;
 email: string;
 phone: number,
-
+illCost: number,
 /*
     const [name: setName] = useState("");
     const [lastName: setLastName] = useState("");
@@ -42,4 +42,4 @@ phone: number,
 
 }
 
-export const emptyStudent: Student = { id: -1, name: "", lastName: "", room: -1, year: -1, sec: -1, turn: -1, dni: -1, nationality: "", dateBorn: "", cuil: -1, address: "", cp: -1, city: "", bar: "", email: "", phone: -1};
+export const emptyStudent: Student = { id: -1, name: "", lastName: "", room: -1, year: -1, sec: -1, turn: -1, dni: -1, nationality: "", dateBorn: "", cuil: -1, address: "", cp: -1, city: "", bar: "", email: "", phone: -1, illCost: -1};
