@@ -35,100 +35,115 @@ const LoadStudentPage = () => {
 required fluid icon='name' 
 iconPosition='left' 
 id='form_student_name'
-label='Ingrese su nombre:'
+label='Nombre:'
 placeholder='Ingrese su nombre' 
 type="text"
+onChange = {(e) => setStudent({ ...student, name: e.target.value})}
 />
 <Form.Input required fluid 
 icon='name' 
 iconPosition='left' 
 id='form_student_lastName'
-label='Ingrese su apellido:'
+label='Apellido:'
 placeholder='Ingrese su apellido:' 
 type="text"
+onChange = {(e) => setStudent({ ...student, lastName: e.target.value})}
 />
 <Form.Input required fluid icon='name' 
 iconPosition='left' 
 id='form_student_room'
 label='Ingrese su salón:'
-placeholder='Ingrese su salón:' 
+placeholder='Salón:' 
 type="number"
+onChange = {(e) => setStudent({ ...student, room: e.target.valueAsNumber})}
 />
 <Form.Input required fluid icon='name' 
 iconPosition='left' 
 id='form_student_year'
-label='Ingrese su curso:'
+label='Curso:'
 placeholder='Ingrese su curso:' 
 type="number"
+onChange={(e) => setStudent({ ...student, year: e.target.valueAsNumber})}
 />
 <Form.Input required fluid icon='name' 
 iconPosition='left' 
 id='form_student_sec'
-label='Ingrese su sección:'
+label='Sección:'
 placeholder='Ingrese su sección:' 
 type="number"
+onChange = {(e) => setStudent({ ...student, sec: e.target.valueAsNumber})}
 />
 <Form.Input required fluid icon='name' 
 iconPosition='left' 
 id='form_student_turn'
-label='Ingrese su Turno:'
-placeholder='Ingrese su turno:' 
+label='Turno:'
+placeholder='Ingrese su turno al que asiste en la escuela:' 
 type="number"
+onChange = {(e) => setStudent({ ...student, turn: e.target.valueAsNumber})}
 />
 <Form.Input required fluid 
 id='form_student_dni'
-label='Ingrese su DNI:'
-placeholder='Ingrese su dni:'
+label='DNI:'
+placeholder='Ingrese su DNI:'
 type="number"
+onChange = {(e) => setStudent({ ...student, dni: e.target.valueAsNumber})}
 />
 <Form.Input required fluid 
 id='form_student_nationality'
-label='Ingrese su nacionalidad:'
+label='Nacionalidad:'
 placeholder='Ingrese su nacionalidad:'
 type="text"
+onChange = {(e) => setStudent({ ...student, nationality: e.target.value})}
 />
 
 <Form.Input required fluid icon='name' iconPosition='left'
 id='form_student_cuil'
-label='Ingrese su CUIL:'
+label='CUIL:'
 placeholder='Ingrese su cuil:'
 type="number"
+onChange = {(e) => setStudent({ ...student, cuil: e.target.valueAsNumber})}
 />
 <Form.Input required fluid icon='name' iconPosition='left'
 id='form_student_address'
-label='Ingrese su domicilio:'
+label='Domicilio:'
 placeholder='Ingrese su domicilio:'
 type="text"
+onChange = {(e) => setStudent({ ...student, address: e.target.value})}
 />
 <Form.Input required fluid icon='name' iconPosition='left'
 id='form_student_cp'
 label='Ingrese su código postal:'
 placeholder='Ingrese su cp:'
 type="number"
+onChange = {(e) => setStudent({ ...student, cp: e.target.valueAsNumber})}
 />
 <Form.Input required fluid icon='name' iconPosition='left'
 id='form_student_city'
 label='Ingrese la ciudad en donde vive:'
 placeholder='Ingrese la ciudad donde vive:'
 type="text"
+onChange = {(e) => setStudent({ ...student, city: e.target.value})}
 />
 <Form.Input required fluid icon='name' iconPosition='left'
 id='form_student_bar'
-label='Ingrese su barrio:'
+label='Barrio:'
 placeholder='Ingrese su barrio:'
 type="text"
+onChange = {(e) => setStudent({ ...student, bar: e.target.value})}
 />
 <Form.Input required fluid icon='name' iconPosition='left'
 id='form_student_email'
 label='Ingrese su  correo electronico:'
 placeholder='Ingrese su e-mail:'
 type="text"
+onChange = {(e) => setStudent({ ...student, email: e.target.value})}
 />
 <Form.Input required fluid icon='name' iconPosition='left'
 id='form_student_phone'
-label='Ingrese su teléfono:'
+label='Teléfono:'
 placeholder='Ingrese su teléfono:'
 type="number"
+onChange = {(e) => setStudent({ ...student, phone: e.target.valueAsNumber})}
 />
 <Form.Input required fluid 
 icon='name' iconPosition='left'
@@ -136,6 +151,7 @@ id='form_student_ill'
 label='Si tiene una enfermedad crónica ingrese el costo de la misma:'
 placeholder='Ingrese el costo de sus enfermedades crónicas en caso de poseerlas:'
 type="number"
+onChange = {(e) => setStudent({ ...student, illCost: e.target.valueAsNumber})}
 />
 <Button fluid label='Cargar los datos' size='large' >
 Ingresar los datos
