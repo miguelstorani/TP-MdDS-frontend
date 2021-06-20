@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { AreaHTMLAttributes, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { observer } from "mobx-react-lite";
 import { Button, Form, FormField, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
@@ -30,7 +30,7 @@ const LoadStudentPage = () => {
 
 <Form size='large'>
 <Segment stacked>
-
+<div>
 <Form.Input 
 required fluid icon='name' 
 iconPosition='left' 
@@ -49,12 +49,14 @@ placeholder='Ingrese su apellido:'
 type="text"
 onChange = {(e) => setStudent({ ...student, lastName: e.target.value})}
 />
+</div>
+<div>
 <Form.Input required fluid icon='name' 
 iconPosition='left' 
 id='form_student_room'
-label='Ingrese su salón:'
-placeholder='Salón:' 
-type="number"
+label='Salón:'
+placeholder='Ingrese su salón en números:' 
+type="text"
 onChange = {(e) => setStudent({ ...student, room: e.target.valueAsNumber})}
 />
 <Form.Input required fluid icon='name' 
@@ -81,11 +83,14 @@ placeholder='Ingrese su turno al que asiste en la escuela:'
 type="number"
 onChange = {(e) => setStudent({ ...student, turn: e.target.valueAsNumber})}
 />
-<Form.Input required fluid 
+</div>
+
+<Form.Input required  fluid icon='name' iconPosition='left'
 id='form_student_dni'
 label='DNI:'
-placeholder='Ingrese su DNI:'
-type="number"
+placeholder='Ingrese su DNI sin puntos:'
+type="number" min="1" pattern="^[0-9]+"
+
 onChange = {(e) => setStudent({ ...student, dni: e.target.valueAsNumber})}
 />
 <Form.Input required fluid 
@@ -100,7 +105,7 @@ onChange = {(e) => setStudent({ ...student, nationality: e.target.value})}
 id='form_student_cuil'
 label='CUIL:'
 placeholder='Ingrese su cuil:'
-type="number"
+type="number" min="1" pattern="^[0-9]+"
 onChange = {(e) => setStudent({ ...student, cuil: e.target.valueAsNumber})}
 />
 <Form.Input required fluid icon='name' iconPosition='left'
@@ -114,7 +119,7 @@ onChange = {(e) => setStudent({ ...student, address: e.target.value})}
 id='form_student_cp'
 label='Ingrese su código postal:'
 placeholder='Ingrese su cp:'
-type="number"
+type="number" min="1" pattern="^[0-9]+"
 onChange = {(e) => setStudent({ ...student, cp: e.target.valueAsNumber})}
 />
 <Form.Input required fluid icon='name' iconPosition='left'
@@ -140,20 +145,20 @@ onChange = {(e) => setStudent({ ...student, email: e.target.value})}
 />
 <Form.Input required fluid icon='name' iconPosition='left'
 id='form_student_phone'
-label='Teléfono:'
-placeholder='Ingrese su teléfono:'
-type="number"
+label='Teléfono o celular::'
+placeholder='Ingrese su teléfono sin 0 y sin 1:'
+type="number" min="1" pattern="^[0-9]+"
 onChange = {(e) => setStudent({ ...student, phone: e.target.valueAsNumber})}
 />
 <Form.Input required fluid 
 icon='name' iconPosition='left'
 id='form_student_ill'
 label='Si tiene una enfermedad crónica ingrese el costo de la misma:'
-placeholder='Ingrese el costo de sus enfermedades crónicas en caso de poseerlas:'
-type="number"
+placeholder='Ingrese el costo de sus enfermedades crónicas en caso de poseerlas (ingrese 0 en otro caso):'
+type="number" min="0" pattern="^[0-9]+"
 onChange = {(e) => setStudent({ ...student, illCost: e.target.valueAsNumber})}
 />
-<Button fluid label='Cargar los datos' size='large' >
+<Button  fluid label='Cargar los datos' size='large' labelPosition='right'>
 Ingresar los datos
 </Button>
 </Segment>

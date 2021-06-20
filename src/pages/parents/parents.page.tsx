@@ -20,7 +20,7 @@ const state = {}
  const handleChange = (e: Relationship, { value }) => this.setState({ value });
 */
     
-const ParentPage = () => {
+const LoadParentPage = () => {
 
   const [value, setValue] = useState<Relationship>(Relationship.Brother);
 const [parent, setParent] = useState(emptyParent);  
@@ -50,6 +50,7 @@ iconPosition='left'
 id='form_parent_name'
 label='Nombre:'
 placeholder='Ingrese su nombre' 
+
 onChange = {e => setParent({ ...parent, name: e.target.value })}
 type="text"
 />
@@ -67,10 +68,10 @@ iconPosition='left'
 id='form_parent_age'
 label='Edad:'
 placeholder='Ingrese su edad:' 
-type="number"
+type="number" min="4" pattern="^[0-9]+"
 onChange = {(e) => setParent({ ...parent, age: e.target.valueAsNumber })}
-
 />
+<div>
 <Form.Input required fluid icon='name' 
 iconPosition='left' 
 id='form_parent_ocupation'
@@ -92,7 +93,7 @@ iconPosition='left'
 id='form_parent_money'
 label='Ingresos mensuales:'
 placeholder='Ingrese el valor, en números, de  sus ingresos:' 
-type="number"
+type="number" min="0" pattern="^[0-9]+"
 onChange = {(e) => setParent({ ...parent, money: e.target.valueAsNumber})}
 />
 <Form.Input required fluid icon='name' 
@@ -100,14 +101,18 @@ iconPosition='left'
 id='form_parent_ill'
 label='Costos por enfermedad:'
 placeholder='Ingrese los costos de sus enfermedades crónicas:'
-type="number"
+type="number" min="0" pattern="^[0-9]+"
 onChange={(e) => setParent({ ...parent, illCost: e.target.valueAsNumber})}
 />
+</div>
   
 <Form.Field>
+<label>Pulse si convive con el familiar</label>
 <Checkbox 
 id='form_parent_live'
 label='Convivo con el estudiante solicitante'
+
+selected = {cheked}
 checked = {cheked}
 onClick = {(e) => setCheked(cheked)}
 />
@@ -145,7 +150,7 @@ iconPosition='left'
 id='form_parent_school'
 label='Ingrese el CUE:'
 placeholder='El Código único Escolar del alumno solicitante:' 
-type="number"
+type="number" min="4" pattern="^[0-9]+"
 onChange = {(e) => setSchool({ ...school, cue: e.target.valueAsNumber})}
 />
 
@@ -160,4 +165,4 @@ onChange = {(e) => setSchool({ ...school, cue: e.target.valueAsNumber})}
 
 } 
 
-export default observer(ParentPage);
+export default observer(LoadParentPage);
