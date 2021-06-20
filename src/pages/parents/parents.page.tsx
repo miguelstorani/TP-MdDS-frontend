@@ -9,6 +9,7 @@ import _, { size, values } from "lodash";
 import { StatusCodes } from "http-status-codes";
 import { emptyParent, Parents } from "../../models/parents";
 import { Relationship } from "../../models/relationship";
+import { emptySchool } from "../../models/school";
 
 const sendForm = (parent: Parents) => {
 //todo  hacer algo para enviar ese familiar
@@ -19,10 +20,18 @@ const state = {}
  const handleChange = (e: Relationship, { value }) => this.setState({ value });
 */
     
-const parentPage = () => {
+const ParentPage = () => {
 
-  const [value, setValue] = useState<Relationship>();
+  const [value, setValue] = useState<Relationship>(Relationship.Brother);
 const [parent, setParent] = useState(emptyParent);  
+const [school, setSchool] = useState(emptySchool);
+const [cheked, setCheked] = useState(false);
+
+const update = () =>{
+  setParent({...parent, relation: value})
+  setParent({ ...parent, live: cheked})
+  setParent({ ...parent, school: school})
+} 
 
     return (
 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
@@ -99,11 +108,13 @@ onChange={(e) => setParent({ ...parent, illCost: e.target.valueAsNumber})}
 <Checkbox 
 id='form_parent_live'
 label='Convivo con el estudiante solicitante'
-
+checked = {cheked}
+onClick = {(e) => setCheked(cheked)}
 />
 
 </Form.Field>
 
+<div>
 <Form.Group inline>
 <label>Relación con familiares</label>
           <Form.Radio
@@ -116,24 +127,26 @@ onClick =  {(e) => setValue(value)}
             label='Padre'
             value={Relationship.Phater}
             checked={value === Relationship.Phater}            
-            
+onClick = {(e) => setValue(value)}            
           />
             
         <Form.Radio 
 label='Hermano'
 value={Relationship.Brother}   
 checked={value === Relationship.Brother}
-        
+        onClick = {(e) => setValue(value)}
         />
         
 </Form.Group>
+</div>
+
 <Form.Input required fluid icon='name' 
 iconPosition='left' 
 id='form_parent_school'
 label='Ingrese el CUE:'
 placeholder='El Código único Escolar del alumno solicitante:' 
-type="text"
-onChange = {(e) => setParent({ ...parent, school: e.target.value.toString})}
+type="number"
+onChange = {(e) => setSchool({ ...school, cue: e.target.valueAsNumber})}
 />
 
 <Button fluid   size='large'   type='submit' label='Cargar los datos'> Submit</Button>
@@ -147,4 +160,4 @@ onChange = {(e) => setParent({ ...parent, school: e.target.value.toString})}
 
 } 
 
-export default observer(parentPage);
+export default observer(ParentPage);
