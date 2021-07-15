@@ -22,7 +22,7 @@ const state = {}
     
 const LoadParentPage = () => {
 
-  const [value, setValue] = useState<Relationship>(Relationship.Brother);
+  const [value, setValue] = useState<Relationship>(Relationship.Mother);
 const [parent, setParent] = useState(emptyParent);  
 const [school, setSchool] = useState(emptySchool);
 const [cheked, setCheked] = useState(false);
@@ -43,7 +43,8 @@ const update = () =>{
                 </Header>
 
 <Form size='large' onSubmit={() => sendForm(emptyParent)}>
-<Segment>
+<Segment stacked>
+<div>
 <Form.Input 
 required fluid icon='name' 
 iconPosition='left' 
@@ -71,6 +72,7 @@ placeholder='Ingrese su edad:'
 type="number" min="4" pattern="^[0-9]+"
 onChange = {(e) => setParent({ ...parent, age: e.target.valueAsNumber })}
 />
+</div>
 <div>
 <Form.Input required fluid icon='name' 
 iconPosition='left' 
@@ -107,13 +109,13 @@ onChange={(e) => setParent({ ...parent, illCost: e.target.valueAsNumber})}
 </div>
   
 <Form.Field>
-<label>Pulse si convive con el familiar</label>
+<label>¿Convive con el estudiante solicitante?</label>
 <Checkbox 
 id='form_parent_live'
 label='Convivo con el estudiante solicitante'
 
 selected = {cheked}
-checked = {cheked}
+
 onClick = {(e) => setCheked(cheked)}
 />
 
@@ -124,22 +126,24 @@ onClick = {(e) => setCheked(cheked)}
 <label>Relación con familiares</label>
           <Form.Radio
             label='Madre'
-            value={Relationship.Mother}
-            checked={value === Relationship.Mother}
-onClick =  {(e) => setValue(value)}
-          />
+            checked={value === Relationship.Mother}            
+onClick =  {(e) => setValue(Relationship.Mother)}
+value = {value}
+                      />
           <Form.Radio
-            label='Padre'
-            value={Relationship.Phater}
+            label='Padre'            
             checked={value === Relationship.Phater}            
-onClick = {(e) => setValue(value)}            
+onClick = {(e) => setValue(Relationship.Phater)}            
+value = {value}
+inputProps={{ 'aria-label': 'B' }}
           />
             
         <Form.Radio 
 label='Hermano'
-value={Relationship.Brother}   
 checked={value === Relationship.Brother}
-        onClick = {(e) => setValue(value)}
+        onClick = {(e) => setValue(Relationship.Brother)}
+        value = {value}
+        inputProps={{ 'aria-label': 'A' }}
         />
         
 </Form.Group>
@@ -154,7 +158,8 @@ type="number" min="4" pattern="^[0-9]+"
 onChange = {(e) => setSchool({ ...school, cue: e.target.valueAsNumber})}
 />
 
-<Button fluid   size='large'   type='submit' label='Cargar los datos'> Submit</Button>
+<Button fluid   size='large'   type='submit'> 
+Ingresar los Datos</Button>
 </Segment>
 </Form>
         
