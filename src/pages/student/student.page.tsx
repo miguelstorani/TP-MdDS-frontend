@@ -9,6 +9,9 @@ import { format } from "path";
 import { emptyStudent, Student } from "../../models/student";
 import studentStore from "../../stores/student.store";
 
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 const sendForm = (student: Student) => {
 //todo cargar en la base de datos
 studentStore.loadStudent(student);
@@ -17,9 +20,11 @@ studentStore.loadStudent(student);
 const LoadStudentPage = () => {
 
     const [student, setStudent] = useState(emptyStudent);
+    const [currentDate, setNewDate] = useState(new Date('2021-07-19T21:00:00'));
+    //const onChange = (event, data) => setNewDate(data.value);
+  
 
-
-    return (
+return (
 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
             <Grid.Column style={{ maxWidth: 450 }}>
                 <Header as='h2' textAlign='center'>
@@ -92,6 +97,12 @@ placeholder='Ingrese su DNI sin puntos:'
 type="number" min="1" pattern="^[0-9]+"
 
 onChange = {(e) => setStudent({ ...student, dni: e.target.valueAsNumber})}
+/>
+
+<DatePicker
+selected={currentDate}
+onChange= {(date) => setNewDate(date)}
+    dateFormat="Pp"
 />
 <Form.Input required fluid 
 id='form_student_nationality'
