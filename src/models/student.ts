@@ -1,13 +1,14 @@
 export interface Student {
-    id: number,
-    name: string;
+id: number | null,
+name: string;
 lastName: string;
 room: number,
 year: number,
+course: string,
 sec: number,
 turn: number,
 dni: number,
-    nationality: string;
+nationality: string;
 dateBorn: string;
 cuil: number,
 address: string;
@@ -42,4 +43,4 @@ illCost: number,
 
 }
 
-export const emptyStudent: Student = { id: -1, name: "", lastName: "", room: -1, year: -1, sec: -1, turn: -1, dni: -1, nationality: "", dateBorn: "", cuil: -1, address: "", cp: -1, city: "", bar: "", email: "", phone: -1, illCost: -1};
+export const emptyStudent: Student = { id: null, name: "", lastName: "", room: -1, year: -1, course: "ISI", sec: -1, turn: -1, dni: -1, nationality: "", dateBorn: "", cuil: -1, address: "", cp: -1, city: "", bar: "", email: "", phone: -1, illCost: -1};

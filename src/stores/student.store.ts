@@ -1,3 +1,4 @@
+import Axios from "axios";
 import { StatusCodes } from "http-status-codes";
 import { action, observable, makeAutoObservable } from "mobx";
 import { emptyStudent, Student } from "../models/student";
@@ -29,14 +30,11 @@ this.errorLoadingCode = errorCode;
 }
 
 getStudentFromAPI(id: number){
-    }
-
-getAccessToken(){
-return localStorage.getItem("accessToken");    
+    
 }
 
-loadStudent(student: Student){
-
+loadStudent(student: Student, callback: any){
+    Axios.post('/api/student', student).then((data) => callback(data))
 }
 }
 

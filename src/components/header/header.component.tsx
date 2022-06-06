@@ -30,6 +30,20 @@ const Header = (props: any) => {
       >
         Inicio
       </Menu.Item>
+      <Menu.Item
+        style={{ fontSize: 15, position: "relative", right: 20 }}
+        url="cargarEstudiante"
+        onClick={handleItemClick}
+      >
+        Estudiante
+      </Menu.Item>
+      <Menu.Item
+        style={{ fontSize: 15, position: "relative", right: 20 }}
+        url="cargarFamiliar"
+        onClick={handleItemClick}
+      >
+        Familiares
+      </Menu.Item>
     </Menu>
   );
 };
